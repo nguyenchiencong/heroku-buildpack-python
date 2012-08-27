@@ -16,6 +16,9 @@ VENDORED_BINARIES="npscipy"
 VENDORED_NUMPY="numpy-1.6.1"
 # the location of the bdist of scipy
 VENDORED_SCIPY="scipy-0.10.1"
+# the location of the bdist of scipy
+VENDORED_PANDAS="pandas-0.8.1"
+
 
 # If numpy or scipy exists within requirements.txt then use binaries.
 # if (grep -iq -e "numpy" -e "scipy" setup.py) then
@@ -53,6 +56,13 @@ VENDORED_SCIPY="scipy-0.10.1"
   else
     echo "-----> Creating/downloading scipy bdist."
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
+  fi
+
+  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+    echo "-----> Using cached pandas."
+  else
+    echo "-----> Creating/downloading pandas bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
   fi
   
   if [ -d ${VENDORED_GIT_NAME} ]; then
