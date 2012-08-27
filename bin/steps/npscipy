@@ -66,12 +66,12 @@ VENDORED_PANDAS="pandas-0.8.1"
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
   fi
 
-  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
-    echo "-----> Using cached pandas."
-  else
-    echo "-----> Creating/downloading pandas bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  fi
+  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+  #   echo "-----> Using cached pandas."
+  # else
+  #   echo "-----> Creating/downloading pandas bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  # fi
   
   if [ -d ${VENDORED_GIT_NAME} ]; then
     rm -rf ${VENDORED_GIT_NAME}
