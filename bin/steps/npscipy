@@ -16,7 +16,7 @@ VENDORED_BINARIES="npscipy"
 VENDORED_NUMPY="numpy-1.6.1"
 # the location of the bdist of scipy
 VENDORED_SCIPY="scipy-0.10.1"
-# the location of the bdist of scipy
+# the location of the bdist of pandas
 VENDORED_PANDAS="pandas-0.8.1"
 
 
@@ -28,7 +28,7 @@ VENDORED_PANDAS="pandas-0.8.1"
 
   ## check whether this has happened already
   ## set BLAS/LAPACK/ATLAS
-  if [ -d "vendor/lib/atlas-base" ]; then
+  if [ -d "vendor/lib/atlas-base" && -d "venv/lib/python2.7/site-packages/pandas" ]; then
     echo "-----> Using cached binaries."
   else
     echo "-----> Creating/downloading binaries."
