@@ -18,7 +18,8 @@ VENDORED_NUMPY="numpy-1.6.2"
 VENDORED_SCIPY="scipy-0.10.1"
 # the location of the bdist of pandas
 VENDORED_PANDAS="pandas-0.8.1"
-
+# the location of the bdist of statsmodels
+VENDORED_STATSMODELS="statsmodels-0.5.0"
 
 # If numpy or scipy exists within requirements.txt then use binaries.
 # if (grep -iq -e "numpy" -e "scipy" setup.py) then
@@ -26,11 +27,11 @@ VENDORED_PANDAS="pandas-0.8.1"
   cd .heroku
   echo "-----> heroku contents: $(ls)"
 
-  ## check whether this has happened already
-  ## set BLAS/LAPACK/ATLAS
-  # if [ -d "vendor/lib/atlas-base" ]; then
-  #   echo "-----> Using cached binaries."
-  # else
+  # check whether this has happened already
+  # set BLAS/LAPACK/ATLAS
+  if [ -d "vendor/lib/atlas-base" && -d "venv/lib/python2.7/site-packages/pandas" && -d "venv/lib/python2.7/site-packages/statsmodels"]; then
+    echo "-----> Using cached binaries."
+  else
     echo "-----> Creating/downloading binaries."
     # Download and extract everything into target vendor directory.
     git clone ${VENDORED_GIT_REPO} > /dev/null
@@ -44,7 +45,7 @@ VENDORED_PANDAS="pandas-0.8.1"
     #   echo "-----> Creating/downloading binaries bdist."
     #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_BINARIES}.tar.gz > /dev/null
     # fi
-  # fi
+  fi
   
   export BLAS=$(pwd)/vendor/lib/atlas-base/atlas/libblas.a
   export LAPACK=$(pwd)/vendor/lib/atlas-base/atlas/liblapack.a
@@ -66,12 +67,19 @@ VENDORED_PANDAS="pandas-0.8.1"
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
   fi
 
-  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
-  #   echo "-----> Using cached pandas."
-  # else
-  #   echo "-----> Creating/downloading pandas bdist."
-  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  # fi
+  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+    echo "-----> Using cached pandas."
+  else
+    echo "-----> Creating/downloading pandas bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  fi
+
+  if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
+    echo "-----> Using cached statsmodels."
+  else
+    echo "-----> Creating/downloading statsmodels bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  fi
   
   if [ -d ${VENDORED_GIT_NAME} ]; then
     rm -rf ${VENDORED_GIT_NAME}
