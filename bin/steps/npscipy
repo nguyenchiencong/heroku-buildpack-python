@@ -17,7 +17,7 @@ VENDORED_NUMPY="numpy-1.6.2"
 # the location of the bdist of scipy
 VENDORED_SCIPY="scipy-0.10.1"
 # the location of the bdist of pandas
-VENDORED_PANDAS="pandas-0.8.1"
+VENDORED_PANDAS="pandas-0.9.1"
 # the location of the bdist of statsmodels
 VENDORED_STATSMODELS="statsmodels-0.5.0"
 
