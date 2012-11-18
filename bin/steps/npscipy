@@ -53,33 +53,37 @@ VENDORED_STATSMODELS="statsmodels-0.5.0"
   export LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
   export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
 
-  if [ -d "venv/lib/python2.7/site-packages/numpy" ]; then
-    echo "-----> Using cached numpy."
-  else
-    echo "-----> Creating/downloading numpy bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
-  fi
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/numpy" ]; then
+  #   echo "-----> Using cached numpy."
+  # else
+  #   echo "-----> Creating/downloading numpy bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
+  # fi
   
-  if [ -d "venv/lib/python2.7/site-packages/scipy" ]; then
-    echo "-----> Using cached scipy."
-  else
-    echo "-----> Creating/downloading scipy bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
-  fi
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/scipy" ]; then
+  #   echo "-----> Using cached scipy."
+  # else
+  #   echo "-----> Creating/downloading scipy bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
+  # fi
 
-  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
-    echo "-----> Using cached pandas."
-  else
-    echo "-----> Creating/downloading pandas bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  fi
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+  #   echo "-----> Using cached pandas."
+  # else
+  #   echo "-----> Creating/downloading pandas bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  # fi
 
-  if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
-    echo "-----> Using cached statsmodels."
-  else
-    echo "-----> Creating/downloading statsmodels bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
-  fi
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
+  #   echo "-----> Using cached statsmodels."
+  # else
+  #   echo "-----> Creating/downloading statsmodels bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  # fi
   
   if [ -d ${VENDORED_GIT_NAME} ]; then
     rm -rf ${VENDORED_GIT_NAME}
