@@ -20,6 +20,9 @@ VENDORED_SCIPY="scipy-0.10.1"
 VENDORED_PANDAS="pandas-0.9.1"
 # the location of the bdist of statsmodels
 VENDORED_STATSMODELS="statsmodels-0.5.0"
+# the location of the bdist of skikits.statsmodels
+VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
+
 
 # If numpy or scipy exists within requirements.txt then use binaries.
 # if (grep -iq -e "numpy" -e "scipy" setup.py) then
@@ -69,22 +72,30 @@ VENDORED_STATSMODELS="statsmodels-0.5.0"
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
   fi
 
-  # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
-    echo "-----> Using cached pandas."
+  # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+  #   echo "-----> Using cached pandas."
+  # else
+  #   echo "-----> Creating/downloading pandas bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  # fi
+
+  # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  # if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
+  #   echo "-----> Using cached statsmodels."
+  # else
+  #   echo "-----> Creating/downloading statsmodels bdist."
+  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  # fi
+  
+  # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
+  if [ -d "venv/lib/python2.7/site-packages/scikits.statsmodels" ]; then
+    echo "-----> Using cached scikits.statsmodels."
   else
-    echo "-----> Creating/downloading pandas bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+    echo "-----> Creating/downloading scikits.statsmodels bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIKITS_STATSMODELS}.tar.gz > /dev/null
   fi
 
-  # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
-  if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
-    echo "-----> Using cached statsmodels."
-  else
-    echo "-----> Creating/downloading statsmodels bdist."
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
-  fi
-  
   if [ -d ${VENDORED_GIT_NAME} ]; then
     rm -rf ${VENDORED_GIT_NAME}
   fi
