@@ -192,11 +192,11 @@ fi
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip version $(pip --version | awk '{print $2}')"
-for line in $(cat requirements.txt) do
-  pip install --use-mirrors $line --src ./.heroku/src
-end
-indent
-# pip install --use-mirrors -r requirements.txt --src ./.heroku/src | indent
+# for line in $(cat requirements.txt) do
+#   pip install --use-mirrors $line --src ./.heroku/src
+# end
+# indent
+pip install --use-mirrors -r requirements.txt --src ./.heroku/src | indent
 
 # Do additional application hackery if applications appears to be a Django app.
 # Optionally, disable all Django-specific changes with `DISABLE_INJECTION` env.
