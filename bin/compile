@@ -20,7 +20,13 @@ CACHE_DIR=$2
 CACHED_DIRS=".heroku"
 
 # Static configurations for virtualenv caches.
-VIRTUALENV_LOC=".heroku/venv"
+# VIRTUALENV_LOC=".heroku/venv"
+# Static configurations for virtualenv caches.
+LEGACY_VIRTUALENV_LOC="."
+MODERN_VIRTUALENV_LOC=".heroku/venv"
+LEGACY_VIRTUALENV_DIRS="bin include lib"
+LEGACY_VIRTUALENV_TRIGGER="lib/python2.7"
+
 LEGACY_TRIGGER="lib/python2.7"
 PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 
