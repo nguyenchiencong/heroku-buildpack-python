@@ -57,20 +57,20 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
 
   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
-  # if [ -d "./.heroku/venv/lib/python2.7/site-packages/numpy" ]; then
-  #   echo "-----> Using cached numpy."
-  # else
-  #   echo "-----> Creating/downloading numpy bdist."
-  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
-  # fi
+  if [ -d "./.heroku/venv/lib/python2.7/site-packages/numpy" ]; then
+    echo "-----> Using cached numpy."
+  else
+    echo "-----> Creating/downloading numpy bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
+  fi
   
   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
-  # if [ -d "./.heroku/venv/lib/python2.7/site-packages/scipy" ]; then
-  #   echo "-----> Using cached scipy."
-  # else
-  #   echo "-----> Creating/downloading scipy bdist."
-  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
-  # fi
+  if [ -d "./.heroku/venv/lib/python2.7/site-packages/scipy" ]; then
+    echo "-----> Using cached scipy."
+  else
+    echo "-----> Creating/downloading scipy bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
+  fi
 
   # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
   # if [ -d "./.heroku/venv/lib/python2.7/site-packages/pandas" ]; then
