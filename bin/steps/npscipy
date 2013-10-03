@@ -32,7 +32,7 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
 
   # check whether this has happened already
   # set BLAS/LAPACK/ATLAS
-  if [ -d "vendor/lib/atlas-base" && -d "venv/lib/python2.7/site-packages/pandas" && -d "venv/lib/python2.7/site-packages/statsmodels"]; then
+  if [ -d "vendor/lib/atlas-base" ]; then
     echo "-----> Using cached binaries."
   else
     echo "-----> Creating/downloading binaries."
@@ -73,12 +73,12 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   fi
 
   # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
-  #   echo "-----> Using cached pandas."
-  # else
-  #   echo "-----> Creating/downloading pandas bdist."
-  #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  # fi
+  if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+    echo "-----> Using cached pandas."
+  else
+    echo "-----> Creating/downloading pandas bdist."
+    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
+  fi
 
   # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
   # if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
