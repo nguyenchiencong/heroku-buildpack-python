@@ -75,7 +75,7 @@ indent() {
 }
 
 function virtualenv (){
-  python "$ROOT_DIR/vendor/virtualenv-1.8/virtualenv.py" "$@"
+  python "$ROOT_DIR/vendor/virtualenv-1.8.2/virtualenv.py" "$@"
 }
 
 function puts-step (){
