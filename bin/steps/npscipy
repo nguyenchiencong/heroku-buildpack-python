@@ -73,7 +73,7 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   fi
 
   # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PANDAS}.tar.gz > /dev/null
-  # if [ -d "venv/lib/python2.7/site-packages/pandas" ]; then
+  # if [ -d "./.heroku/venv/lib/python2.7/site-packages/pandas" ]; then
   #   echo "-----> Using cached pandas."
   # else
   #   echo "-----> Creating/downloading pandas bdist."
@@ -81,7 +81,7 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   # fi
 
   # # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
-  # if [ -d "venv/lib/python2.7/site-packages/statsmodels" ]; then
+  # if [ -d "./.heroku/venv/lib/python2.7/site-packages/statsmodels" ]; then
   #   echo "-----> Using cached statsmodels."
   # else
   #   echo "-----> Creating/downloading statsmodels bdist."
@@ -89,7 +89,7 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   # fi
   
   # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_STATSMODELS}.tar.gz > /dev/null
-  # if [ -d "venv/lib/python2.7/site-packages/scikits.statsmodels" ]; then
+  # if [ -d "./.heroku/venv/lib/python2.7/site-packages/scikits.statsmodels" ]; then
   #   echo "-----> Using cached scikits.statsmodels."
   # else
   #   echo "-----> Creating/downloading scikits.statsmodels bdist."
