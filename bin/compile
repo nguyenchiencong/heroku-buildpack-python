@@ -194,7 +194,7 @@ fi
 puts-step "Installing dependencies using Pip version $(pip --version | awk '{print $2}')"
 for line in $(cat requirements.txt)
 do
-  pip install --use-mirrors -r $line -E /path/to/virtualenv --src ./.heroku/src | indent
+  pip install --use-mirrors -r $line -E /path/to/virtualenv --src ./.heroku/src
 end
 # pip install --use-mirrors -r requirements.txt --src ./.heroku/src | indent
 
