@@ -18,7 +18,7 @@ VENDORED_NUMPY="numpy-1.7.1"
 # the location of the bdist of scipy
 # VENDORED_SCIPY="scipy-0.10.1"
 # VENDORED_SCIPY="scipy-0.12.0"
-VENDORED_SCIPY="scipy-0.11.0"
+VENDORED_SCIPY="scipy-0.12.0"
 # the location of the bdist of pandas
 VENDORED_PANDAS="pandas-0.9.1"
 # the location of the bdist of statsmodels
@@ -28,7 +28,7 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
 
 
 # If numpy or scipy exists within requirements.txt then use binaries.
-# if (grep -iq -e "numpy" -e "scipy" setup.py) then
+if (grep -iq -e "numpy" -e "scipy" setup.py) then
   echo "-----> Noticed numpy/scipy. Bootstrapping prebuilt binaries."
   cd .heroku
   echo "-----> heroku contents: $(ls)"
@@ -112,4 +112,4 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
     rm -rf ${VENDORED_GIT_NAME}
   fi
   cd ..
-# fi
+fi
