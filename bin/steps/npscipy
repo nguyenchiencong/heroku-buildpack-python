@@ -55,8 +55,10 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   export BLAS=$(pwd)/vendor/lib/atlas-base/atlas/libblas.a
   export LAPACK=$(pwd)/vendor/lib/atlas-base/atlas/liblapack.a
   export ATLAS=$(pwd)/vendor/lib/atlas-base/libatlas.a
-  export LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
-  export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  # export LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  # export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/lib/atlas-base:$(pwd)/lib/atlas-base/atlas
+  export LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/vendor/lib/atlas- base:$(pwd)/vendor/lib/atlas-base/atlas
+  export LD_LIBRARY_PATH=$(pwd)/vendor/lib:$(pwd)/vendor/lib/atlas- base:$(pwd)/vendor/lib/atlas-base/atlas
 
   # tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
   if [ -d "venv/lib/python3.3/site-packages/numpy" ]; then
