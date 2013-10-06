@@ -101,6 +101,13 @@ VENDORED_SCIKITS_STATSMODELS="scikits.statsmodels-0.3.1"
   #   tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIKITS_STATSMODELS}.tar.gz > /dev/null
   # fi
 
+  # Move everything from venv directory to python directory
+  if [ -d "venv" ]; then
+    puts-step "Moving everything from venv directory to python directory..."
+    cp -a venv/* python/
+    rm -r venv
+  fi
+
   if [ -d ${VENDORED_GIT_NAME} ]; then
     rm -rf ${VENDORED_GIT_NAME}
   fi
